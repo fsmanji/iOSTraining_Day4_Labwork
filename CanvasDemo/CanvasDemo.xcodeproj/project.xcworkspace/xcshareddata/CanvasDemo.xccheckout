@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2EA6DF67-9967-4F1B-920D-B7C0E5606D08</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FC0AA8D515EC7668EC488003DA3CAE66C178490B</key>
+		<string>https://github.com/fsmanji/iOSTraining_Day4_Labwork.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CanvasDemo/CanvasDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FC0AA8D515EC7668EC488003DA3CAE66C178490B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/fsmanji/iOSTraining_Day4_Labwork.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FC0AA8D515EC7668EC488003DA3CAE66C178490B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FC0AA8D515EC7668EC488003DA3CAE66C178490B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOSTraining_Day4_Labwork</string>
+		</dict>
+	</array>
+</dict>
+</plist>
