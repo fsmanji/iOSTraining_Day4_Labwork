@@ -15,7 +15,12 @@
 @property CGPoint trayOriginalCenter;
 @property CGPoint trayOpenPos;
 @property CGPoint trayClosePos;
+
+@property CGPoint newFaceOriginalCenter;
+
 @property (weak, nonatomic) IBOutlet UILabel *baselineLable;
+
+@property (strong, nonatomic) UIImageView *newlyCreatedFace;
 
 @end
 
@@ -28,9 +33,41 @@
 @synthesize trayClosePos;
 @synthesize trayOpenPos;
 
+
 -(void) viewDidLoad {
     trayClosePos = CGPointMake(trayView.center.x, trayView.center.y + trayView.bounds.size.height - self.baselineLable.bounds.size.height);
     trayOpenPos = trayView.center;
+}
+
+- (IBAction)onPanSmiley:(UIPanGestureRecognizer *)sender {
+    
+
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan: {
+            UIImageView *imageView = (UIImageView *)sender.view;
+            _newlyCreatedFace = [[UIImageView alloc] initWithImage:imageView.image];
+            [self.view addSubview:_newlyCreatedFace];
+            
+            //reposition the view inside its grandparent view
+            _newlyCreatedFace.center = CGPointMake(imageView.center.x, imageView.center.y + trayView.frame.origin.y);
+            _newFaceOriginalCenter = _newlyCreatedFace.center;
+            
+        }
+            break;
+        case UIGestureRecognizerStateChanged: {
+            CGPoint translation = [sender translationInView:_newlyCreatedFace];
+            _newlyCreatedFace.center = CGPointMake(_newFaceOriginalCenter.x + translation.x, _newFaceOriginalCenter.y + translation.y);
+        }
+            break;
+        case UIGestureRecognizerStateEnded: {
+
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (IBAction)onPan:(UIPanGestureRecognizer *)sender {
@@ -63,5 +100,7 @@
             break;
     }
 }
+
+
 
 @end
