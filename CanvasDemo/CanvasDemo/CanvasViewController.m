@@ -53,7 +53,11 @@
         }
             break;
         case UIGestureRecognizerStateEnded: {
-            
+            if(imageView.frame.origin.x > trayView.frame.origin.x && imageView.frame.origin.y > trayView.frame.origin.y) {
+                [UIView animateWithDuration:0.6 animations:^{
+                    imageView.center = _newFaceOriginalCenter;
+                }];
+            }
             
         }
             break;

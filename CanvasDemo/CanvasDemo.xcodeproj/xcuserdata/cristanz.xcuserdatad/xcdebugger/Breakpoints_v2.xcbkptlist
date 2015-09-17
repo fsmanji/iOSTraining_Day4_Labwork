@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CanvasDemo/CanvasViewController.m"
-            timestampString = "464216468.0529"
+            timestampString = "464216849.15214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-onPanSmiley:"
             landmarkType = "5">
          </BreakpointContent>
