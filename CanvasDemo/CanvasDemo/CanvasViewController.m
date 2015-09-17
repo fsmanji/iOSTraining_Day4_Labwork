@@ -67,6 +67,33 @@
     }
 }
 
+- (IBAction)onRotateFace:(UIRotationGestureRecognizer *)sender {
+    static CGFloat initialRotation;
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        initialRotation = atan2f(sender.view.transform.b, sender.view.transform.a);
+    }
+    CGFloat newRotation = initialRotation + sender.rotation;
+    sender.view.transform = CGAffineTransformMakeRotation(newRotation);
+   
+}
+
+- (IBAction)pinchGestureHandler:(UIPinchGestureRecognizer *)sender
+{
+    static CGPoint center;
+    static CGSize initialSize;
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        center = sender.view.center;
+        initialSize = sender.view.frame.size;
+    }
+    sender.view.frame = CGRectMake(0,
+                                   0,
+                                   initialSize.width * sender.scale,
+                                   initialSize.height * sender.scale);
+    sender.view.center = center;
+}
+
 -(void)setupNewFace:(UIImageView *)imageView {
     _newlyCreatedFace = [[UIImageView alloc] initWithImage:imageView.image];
     [self.view addSubview:_newlyCreatedFace];
@@ -74,21 +101,29 @@
     //reposition the view inside its grandparent view
     _newlyCreatedFace.center = CGPointMake(imageView.center.x, imageView.center.y + trayView.frame.origin.y);
 
-    //add gesture handler
+    //add PAN gesture handler
     UIPanGestureRecognizer* panHandler = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanNewSmiley:)];
-    //bind gesture handler
     [_newlyCreatedFace addGestureRecognizer:panHandler];
+    
+    UIRotationGestureRecognizer* rotationHandler = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(onRotateFace:)];
+    [_newlyCreatedFace addGestureRecognizer:rotationHandler];
+    /*UIPinchGestureRecognizer* rotationHandler = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchGestureHandler:)];
+    [_newlyCreatedFace addGestureRecognizer:rotationHandler];
+    */
+    
     //enable touch event
     [_newlyCreatedFace setUserInteractionEnabled:YES];
 }
 
+
+
 - (IBAction)onPanSmiley:(UIPanGestureRecognizer *)sender {
-    
 
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
             UIImageView *imageView = (UIImageView *)sender.view;
             [self setupNewFace:imageView];
+            
             _newFaceOriginalCenter = _newlyCreatedFace.center;
             
         }
@@ -96,11 +131,6 @@
         case UIGestureRecognizerStateChanged: {
             CGPoint translation = [sender translationInView:_newlyCreatedFace];
             _newlyCreatedFace.center = CGPointMake(_newFaceOriginalCenter.x + translation.x, _newFaceOriginalCenter.y + translation.y);
-        }
-            break;
-        case UIGestureRecognizerStateEnded: {
-
-            
         }
             break;
             
