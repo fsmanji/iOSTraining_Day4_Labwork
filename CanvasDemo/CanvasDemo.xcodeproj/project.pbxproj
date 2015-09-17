@@ -12,8 +12,8 @@
 		B3038EF61BAB4CE400D546A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3038EF51BAB4CE400D546A5 /* ViewController.m */; };
 		B3038EF91BAB4CE400D546A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3038EF71BAB4CE400D546A5 /* Main.storyboard */; };
 		B3038EFB1BAB4CE400D546A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3038EFA1BAB4CE400D546A5 /* Images.xcassets */; };
-		B3038EFE1BAB4CE400D546A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3038EFC1BAB4CE400D546A5 /* LaunchScreen.xib */; };
 		B3038F0A1BAB4CE400D546A5 /* CanvasDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3038F091BAB4CE400D546A5 /* CanvasDemoTests.m */; };
+		B3038F151BAB4F8B00D546A5 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3038F141BAB4F8B00D546A5 /* CanvasViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +36,11 @@
 		B3038EF51BAB4CE400D546A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B3038EF81BAB4CE400D546A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3038EFA1BAB4CE400D546A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B3038EFD1BAB4CE400D546A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B3038F031BAB4CE400D546A5 /* CanvasDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3038F081BAB4CE400D546A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3038F091BAB4CE400D546A5 /* CanvasDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasDemoTests.m; sourceTree = "<group>"; };
+		B3038F131BAB4F8B00D546A5 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		B3038F141BAB4F8B00D546A5 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +88,9 @@
 				B3038EF51BAB4CE400D546A5 /* ViewController.m */,
 				B3038EF71BAB4CE400D546A5 /* Main.storyboard */,
 				B3038EFA1BAB4CE400D546A5 /* Images.xcassets */,
-				B3038EFC1BAB4CE400D546A5 /* LaunchScreen.xib */,
 				B3038EED1BAB4CE400D546A5 /* Supporting Files */,
+				B3038F131BAB4F8B00D546A5 /* CanvasViewController.h */,
+				B3038F141BAB4F8B00D546A5 /* CanvasViewController.m */,
 			);
 			path = CanvasDemo;
 			sourceTree = "<group>";
@@ -200,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3038EF91BAB4CE400D546A5 /* Main.storyboard in Resources */,
-				B3038EFE1BAB4CE400D546A5 /* LaunchScreen.xib in Resources */,
 				B3038EFB1BAB4CE400D546A5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3038F151BAB4F8B00D546A5 /* CanvasViewController.m in Sources */,
 				B3038EF61BAB4CE400D546A5 /* ViewController.m in Sources */,
 				B3038EF31BAB4CE400D546A5 /* AppDelegate.m in Sources */,
 				B3038EF01BAB4CE400D546A5 /* main.m in Sources */,
@@ -250,14 +252,6 @@
 				B3038EF81BAB4CE400D546A5 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B3038EFC1BAB4CE400D546A5 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3038EFD1BAB4CE400D546A5 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
