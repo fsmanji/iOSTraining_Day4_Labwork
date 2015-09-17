@@ -39,17 +39,52 @@
     trayOpenPos = trayView.center;
 }
 
+- (IBAction)onPanNewSmiley:(UIPanGestureRecognizer *)sender {
+    UIImageView *imageView = (UIImageView *)sender.view;
+    
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan: {
+            _newFaceOriginalCenter = imageView.center;
+        }
+            break;
+        case UIGestureRecognizerStateChanged: {
+            CGPoint translation = [sender translationInView:_newlyCreatedFace];
+            imageView.center = CGPointMake(_newFaceOriginalCenter.x + translation.x, _newFaceOriginalCenter.y + translation.y);
+        }
+            break;
+        case UIGestureRecognizerStateEnded: {
+            
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)setupNewFace:(UIImageView *)imageView {
+    _newlyCreatedFace = [[UIImageView alloc] initWithImage:imageView.image];
+    [self.view addSubview:_newlyCreatedFace];
+    
+    //reposition the view inside its grandparent view
+    _newlyCreatedFace.center = CGPointMake(imageView.center.x, imageView.center.y + trayView.frame.origin.y);
+
+    //add gesture handler
+    UIPanGestureRecognizer* panHandler = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanNewSmiley:)];
+    //bind gesture handler
+    [_newlyCreatedFace addGestureRecognizer:panHandler];
+    //enable touch event
+    [_newlyCreatedFace setUserInteractionEnabled:YES];
+}
+
 - (IBAction)onPanSmiley:(UIPanGestureRecognizer *)sender {
     
 
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
             UIImageView *imageView = (UIImageView *)sender.view;
-            _newlyCreatedFace = [[UIImageView alloc] initWithImage:imageView.image];
-            [self.view addSubview:_newlyCreatedFace];
-            
-            //reposition the view inside its grandparent view
-            _newlyCreatedFace.center = CGPointMake(imageView.center.x, imageView.center.y + trayView.frame.origin.y);
+            [self setupNewFace:imageView];
             _newFaceOriginalCenter = _newlyCreatedFace.center;
             
         }
